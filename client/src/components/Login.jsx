@@ -5,11 +5,18 @@ import '../assets/css/util.css'
 import '../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css'
 import '../assets/fonts/iconic/css/material-design-iconic-font.min.css'
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
+
 
 const Login = () => {
+    const navigate = useNavigate();
     const adminData = {
         username: 'admin',
         password: 'admin'
+    }
+    const clientData = {
+        username: 'user',
+        password: 'user'
     }
     const [userData, setUserData] = useState({
         username: '',
@@ -18,11 +25,12 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        if(userData.username === adminData.username && userData.password === adminData.password) {
-            alert('Доступ разрешен')
-        }
-        else{
-            alert('Неверный логин или пароль')
+        if (userData.username === adminData.username && userData.password === adminData.password) {
+            navigate('/admin')
+        } else if (userData.username === clientData.username && userData.password === clientData.password) {
+            navigate('/client')
+        } else {
+            alert('Неверный пароль')
         }
     }
     return (
