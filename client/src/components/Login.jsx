@@ -7,6 +7,10 @@ import '../assets/fonts/iconic/css/material-design-iconic-font.min.css'
 import {useState} from "react";
 
 const Login = () => {
+    const adminData = {
+        username: 'admin',
+        password: 'admin'
+    }
     const [userData, setUserData] = useState({
         username: '',
         password: ''
@@ -14,7 +18,12 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(userData)
+        if(userData.username === adminData.username && userData.password === adminData.password) {
+            alert('Доступ разрешен')
+        }
+        else{
+            alert('Неверный логин или пароль')
+        }
     }
     return (
         <>
