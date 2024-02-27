@@ -6,33 +6,33 @@ import '../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css'
 import '../assets/fonts/iconic/css/material-design-iconic-font.min.css'
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 
 const Login = () => {
     const navigate = useNavigate();
-    const adminData = {
-        username: 'admin',
-        password: 'admin'
-    }
-    const clientData = {
-        username: 'user',
-        password: 'user'
-    }
     const [userData, setUserData] = useState({
         username: '',
         password: ''
     })
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
-        if (userData.username === adminData.username && userData.password === adminData.password) {
-            navigate('/admin')
-        } else if (userData.username === clientData.username && userData.password === clientData.password) {
-            navigate('/client')
-        } else {
-            alert('Неверный пароль')
+        const response = await axios.post('http://localhost:3001/login', userData)
+        if(response.data.Role) {
+            if(response.data.Role === 'Admin') {
+                navigate('/admin')
+            }
+            else{
+                navigate('/client')
+            }
+        }
+        else {
+            alert(response.data.Error)
         }
     }
+
+
     return (
         <>
             <div className="limiter">
@@ -65,6 +65,7 @@ const Login = () => {
                                 <button className="login100-form-btn" type="submit">
                                     Войти
                                 </button>
+
                             </div>
 
                             <div className="text-center p-t-90">
