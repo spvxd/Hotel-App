@@ -4,13 +4,26 @@ import '../assets/css/main.css'
 import '../assets/css/util.css'
 import '../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css'
 import '../assets/fonts/iconic/css/material-design-iconic-font.min.css'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
 
 const Login = () => {
+    const [auth, setAuth] = useState(false)
+    useEffect( () => {
+        axios.get('http://localhost:3001/auth').then(res => {
+            if (res.data.Role) {
+                console.log('all ok')
+            }
+            else{
+                navigate('/')
+                console.log(res.data.Error)
+            }
+        })
+    }, []);
     const navigate = useNavigate();
+    axios.defaults.withCredentials = true
     const [userData, setUserData] = useState({
         username: '',
         password: ''
@@ -18,7 +31,8 @@ const Login = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        const response = await axios.post('http://localhost:3001/login', userData)
+        const response = await axios.post('http://localhost:3001/auth/login', userData)
+        console.log(response.data.Role)
         if(response.data.Role) {
             if(response.data.Role === 'Admin') {
                 navigate('/admin')
