@@ -15,11 +15,22 @@ const Client = () => {
             }
         }))
     }, []);
+    const handleLogout = async (e) => {
+        e.preventDefault()
+        const response = await axios.get('http://localhost:3001/auth/logout')
+        if (response.status == 200) {
+            navigate('/')
+        }
+        else {
+            console.log('Some troubles')
+        }
+    }
     return (
         <>
             <h1>
                 Страница клиента
             </h1>
+            <button onClick={handleLogout}>Выйти</button>
         </>
     )
 }
