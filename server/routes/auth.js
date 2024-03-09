@@ -17,6 +17,7 @@ const test = (req, res) => {
 router.get('/', authController.verifyUser, authController.getUser)
 router.post('/login', authController.login)
 router.get('/test',test )
+router.get('/logout',authController.logout)
 
 
 module.exports = router
