@@ -37,6 +37,7 @@ const Client = () => {
         console.log(data);
         const messages = data
         const response = await axios.post('http://localhost:3001/messages/send', {messages})
+        console.log(response.status)
     }
     return (
         <>
