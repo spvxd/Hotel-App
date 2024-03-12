@@ -542,5 +542,73 @@ iframe {
   }
 }
 
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  padding-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+
+}
+
+label {
+  color: #fff;
+  display: block;
+  font-size: 23px;
+}
+
+select, .question,
+textarea {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #555;
+  color: #fff;
+  font-family: Georgia, sans-serif;
+  font-size: 20px;
+}
+
+input {
+  border: none;
+}
+
+option {
+
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+.send-data {
+  background-color: #4CAF50;
+}
+
+.logout {
+  background-color: #e4002b;;
+}
 
 
