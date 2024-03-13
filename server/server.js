@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const cors = require('cors')
 const {json} = require("express");
 const authRouter = require('./routes/auth')
+const messagesRouter = require('./routes/messages')
 const sequelize = require("./database");
 const Users = require("./models/Users");
 const app = express()
@@ -19,7 +20,7 @@ app.use(json())
 app.use(cookieParser())
 
 app.use('/auth', authRouter)
-
+app.use('/messages', messagesRouter)
 
 
 app.listen(PORT, '', () => {

@@ -40,8 +40,8 @@ Users.init({
 });
 
 
-(async () => {
-    await Users.sync({alter: true})
-})()
+// (async () => {
+//     await Users.sync({alter: true})
+// })()
 
 module.exports = Users;
