@@ -12,6 +12,19 @@ const sendMessages = async (req, res) => {
     }
 }
 
+const getMessages = async (req, res) => {
+    try {
+        const messages = await Messages.findAll({raw: true})
+        console.log(messages)
+        return res.status(200).json({Messages: messages})
+    }
+    catch (err) {
+        console.log(err)
+        res.status(500).json({Error: err})
+    }
+}
+
 module.exports = {
-    sendMessages
+    sendMessages,
+    getMessages
 }
