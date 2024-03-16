@@ -681,7 +681,7 @@ button {
     font-size: 18px;
 }
 
-.table_price tbody:nth-child(2n) {
+.table_price tbody {
     background: #E5E5E5;
 }
 
@@ -689,17 +689,7 @@ button {
     text-align: center;
 }
 
-.table_price a {
-    display: inline-block;
-    text-decoration: none;
-    padding: 5px 10px;
-    background: #F79361;
-    box-shadow: 2px 2px 0 0 #a22800;
-    position: relative;
-    width: 100px;
-    align-content: center;
-    align-items: center;
-}
+
 
 .table_price a:hover {
     box-shadow: none;
@@ -718,7 +708,7 @@ button {
 }
 
 .open_item {
-    color: #ffffff;
+    color: #0e38f8;
 }
 
 

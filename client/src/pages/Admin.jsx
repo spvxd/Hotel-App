@@ -1,6 +1,7 @@
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
+import background from "../assets/img/azimut1.jpg";
 
 const Admin = () => {
     const [message, setMessage] = useState([])
@@ -29,35 +30,40 @@ const Admin = () => {
         }
     }
     return (
-        <div className="wrapper">
+        <div className="container-login100" style={{backgroundImage: "url(" + background + ")"}}>
+            <div className="wrapper">
 
-            <table className="table_price">
-                <caption>Список вопросов</caption>
-                <tbody>
-                <tr>
-                    <th>Комната</th>
-                    <th>Тип</th>
-                    <th>Описание</th>
-                    <th>Время</th>
-                    <th>Действие</th>
-                </tr>
-                </tbody>
-                {message.map((item, index) => (
-                    <tbody key={index}>
-                    <tr key={index}>
-                        <th>{item.room}</th>
-                        <th>{item.type}</th>
-                        <th>{item.question}</th>
-                        <th>{item.time}</th>
-                        <th><ul>
-                            <li><a className="delete_item" href="">Удалить</a></li>
-                            <li ><a className="open_item" href="">Подробнее </a> </li>
-                            <li ><a className="archive_item" href="">В архив</a> </li></ul></th>
-
+                <table className="table_price">
+                    <caption>Список вопросов</caption>
+                    <tbody>
+                    <tr>
+                        <th>Комната</th>
+                        <th>Тип</th>
+                        <th>Описание</th>
+                        <th>Время</th>
+                        <th>Действие</th>
                     </tr>
                     </tbody>
-                ))}
-            </table>
+                    {message.map((item, index) => (
+                        <tbody key={index}>
+                        <tr key={index}>
+                            <th>{item.room}</th>
+                            <th>{item.type}</th>
+                            <th>{item.question}</th>
+                            <th>{item.time}</th>
+                            <th>
+                                <ul>
+                                    <li><a className="delete_item" href="">Удалить</a></li>
+                                    <li><a className="open_item" href="">Подробнее </a></li>
+                                    <li><a className="archive_item" href="">В архив</a></li>
+                                </ul>
+                            </th>
+
+                        </tr>
+                        </tbody>
+                    ))}
+                </table>
+            </div>
         </div>
 
     )
