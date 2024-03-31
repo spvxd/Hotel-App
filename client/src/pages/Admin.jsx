@@ -29,6 +29,11 @@ const Admin = () => {
             console.log('Some troubles')
         }
     }
+    const handleDelete = async (index, ) => {
+        console.log(index)
+        const response = await axios.delete(`http://localhost:3001/messages/delete/${index}`, {id:index})
+        console.log(response)
+    }
     return (
         <div className="container-login100" style={{backgroundImage: "url(" + background + ")"}}>
             <div className="wrapper">
@@ -53,7 +58,10 @@ const Admin = () => {
                             <th>{item.time}</th>
                             <th>
                                 <ul>
-                                    <li><a className="delete_item" href="">Удалить</a></li>
+                                    <li><a className="delete_item" href="" onClick={() => {
+                                        handleDelete(item.id)
+                                    }
+                                    }>Удалить</a></li>
                                     <li><a className="open_item" href="">Подробнее </a></li>
                                     <li><a className="archive_item" href="">В архив</a></li>
                                 </ul>
