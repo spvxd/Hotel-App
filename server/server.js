@@ -12,7 +12,7 @@ const PORT = 3001
 
 app.use(cors({
     origin: ["http://localhost:5173"],
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET", "DELETE"],
     credentials: true
 
 }))
